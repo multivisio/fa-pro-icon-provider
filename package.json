@@ -1,0 +1,16 @@
+{
+  "name": "@multivisio/fa-pro-icon-provider",
+  "version": "0.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "github.com:multivisio/fa-pro-icon-provider.git"
+  },
+  "license": "ISC",
+  "author": "Michael Dörer",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
