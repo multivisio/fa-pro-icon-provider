@@ -1,16 +1,50 @@
 {
-  "name": "@multivisio/fa-pro-icon-provider",
-  "version": "0.0.0",
-  "description": "",
-  "repository": {
-    "type": "git",
-    "url": "github.com:multivisio/fa-pro-icon-provider.git"
-  },
-  "license": "ISC",
-  "author": "Michael Dörer",
-  "type": "module",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  }
+	"name": "@multivisio/fa-pro-iconify-provider",
+	"description": "Iconify API",
+	"author": "Vjacheslav Trushkin",
+	"license": "MIT",
+	"version": "0.0.0",
+	"type": "module",
+	"bugs": "https://github.com/iconify/api/issues",
+	"homepage": "https://github.com/iconify/api",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/iconify/api.git"
+	},
+	"packageManager": "npm@11.1.0",
+	"engines": {
+		"node": ">=16.15.0"
+	},
+	"scripts": {
+		"build": "tsc -b",
+		"watch": "tsc -b --watch",
+		"test": "vitest --config vitest.config.mjs",
+		"start": "node --expose-gc lib/index.js",
+		"convert": "node lib/convert.js",
+		"docker:build": "./docker.sh",
+		"docker:start": "docker run -d -p 3000:3000 iconify/api",
+		"docker:stop": "docker ps -q --filter ancestor=iconify/api | xargs -r docker stop",
+		"docker:cleanup": "docker ps -q -a --filter ancestor=iconify/api | xargs -r docker rm",
+		"docker:publish": "docker push iconify/api"
+	},
+	"dependencies": {
+		"@fastify/formbody": "^7.4.0",
+		"@fortawesome/fontawesome-svg-core": "^6.7.2",
+    	"@fortawesome/free-brands-svg-icons": "^6.7.2",
+    	"@fortawesome/pro-light-svg-icons": "^6.7.2",
+    	"@fortawesome/pro-regular-svg-icons": "^6.7.2",
+    	"@fortawesome/pro-solid-svg-icons": "^6.7.2",
+    	"@fortawesome/pro-thin-svg-icons": "^6.7.2",
+		"@iconify/tools": "^4.1.1",
+		"@iconify/types": "^2.0.0",
+		"@iconify/utils": "^2.3.0",
+		"dotenv": "^16.4.7",
+		"fastify": "^4.29.0"
+	},
+	"devDependencies": {
+		"@types/jest": "^29.5.14",
+		"@types/node": "^20.17.17",
+		"typescript": "^5.7.3",
+		"vitest": "^3.0.5"
+	}
 }
